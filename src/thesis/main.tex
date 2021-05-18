@@ -1,0 +1,73 @@
+% arara: xelatex
+% arara: xelatex
+% arara: xelatex
+
+
+% options:
+% thesis=B bachelor's thesis
+% thesis=M master's thesis
+% czech thesis in Czech language
+% english thesis in English language
+% hidelinks remove colour boxes around hyperlinks
+
+\documentclass[thesis=B,english]{css/FITthesis}[2019/12/23]
+
+%\usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
+% \usepackage[latin2]{inputenc} % LaTeX source encoded as ISO-8859-2
+% \usepackage[cp1250]{inputenc} % LaTeX source encoded as Windows-1250
+
+% \usepackage{subfig} %subfigures
+% \usepackage{amsmath} %advanced maths
+% \usepackage{amssymb} %additional math symbols
+
+\usepackage{dirtree} %directory tree visualisation
+\usepackage{tikz} % Insert thesis task at the beginning
+\usepackage{float} % Figures
+\usepackage{amsthm} % Definitions, theorems ect.
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools} %rcases
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{multirow} % cell merge
+\usepackage{multicol}
+\usepackage{tablefootnote}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+% % list of acronyms
+% \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
+% \iflanguage{czech}{\renewcommand*{\acronymname}{Seznam pou{\v z}it{\' y}ch zkratek}}{}
+% \makeglossaries
+
+\include{tex/00_title}
+
+
+\begin{document}
+
+% \newacronym{CVUT}{{\v C}VUT}{{\v C}esk{\' e} vysok{\' e} u{\v c}en{\' i} technick{\' e} v Praze}
+% \newacronym{FIT}{FIT}{Fakulta informa{\v c}n{\' i}ch technologi{\' i}}
+
+\setsecnumdepth{part}
+\include{tex/01_introduction}
+
+\setsecnumdepth{all}
+\include{tex/02_time_series}
+
+\include{tex/03_models_theor}
+
+\include{tex/04_models_pract}
+
+\setsecnumdepth{part}
+\include{tex/05_conclusion}
+
+\bibliographystyle{bibtex/iso690}
+\bibliography{bibtex/bib-database}
+
+\setsecnumdepth{all}
+\include{tex/appendix/01_acronyms}
+
+\include{tex/appendix/02_contents}
+
+\end{document}

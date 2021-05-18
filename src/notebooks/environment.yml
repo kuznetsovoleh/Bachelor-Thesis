@@ -1,0 +1,13 @@
+name: kuzneole_bachelor
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - jupyter
+  - statsmodels==0.12.2
+  - plotly==4.14.3
+  - pandas==1.2.3
+  - numpy==1.19.2
+  - matplotlib==3.3.4
+  - fbprophet==0.7.1

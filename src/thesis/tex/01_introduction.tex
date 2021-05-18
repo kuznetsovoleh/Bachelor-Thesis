@@ -1,0 +1,28 @@
+\chapter{Introduction}
+At the beginning of 2020, the world was faced with a new disease called COVID-19. As already known, this infection is caused by the SARS-CoV-2 virus. In most cases, it occurs in the form of an acute respiratory infection. Moreover, it can cause various health complications and even death.
+
+This virus was first detected in Wuhan, China. However, over time, it began to spread to other countries. As a result, we have witnessed a massive pandemic that has affected the entire world. Large numbers of sick people, overcrowded hospitals, and continuous government restrictive measures have become an integral part of the daily routine of countless people. Many lives depend on how the development of this outbreak will occur. Therefore, it is essential to understand this mechanism and be able to predict what will happen next \cite{Hu2021}. 
+
+\section{Motivation}
+
+Currently, the processes related to COVID-19 can be modeled using knowledge in statistics, programming, data mining, and data analysis. A good model can help you better understand the epidemic and even predict its development. The number of new cases, deaths, people cured, the number of active cases, the reproductive index, the number of free beds in hospitals --- all these are various objective metrics, data that can be used in modeling to describe the course of the pandemic.
+
+Many experts are creating these models to improve the current situation in the world. However, in each country, the pandemic proceeds differently and the creation of models for a specific state also makes sense.
+
+We was faced with the current world situation in the Czech Republic and everything that happened here has influenced our lives.
+
+In light of the above, for this bachelor thesis we decided to study the modeling of processes related to the COVID-19 pandemic in this country.
+
+\section{Objectives}
+
+All the data that we can access can be described as a time series — a data set where all measurements are indexed with time. In 2021, there are a lot of different statistical models that can use this type of data to describe long-term processes. And for this thesis, we decided to select models named \textit{The Facebook Prophet} and \textit{Seasonal Autoregressive Integrated Moving Average} (SARIMA).
+
+The Facebook Prophet is used to decompose the time series into specific components. It is also suitable for the detection of some points in time, after which the course of the pandemic was changed (changepoints). SARIMA was selected mainly for a comparison with the Facebook Prophet model. It uses a different principle based on the fact that the evolution of a time series depends on how it has developed in the past. You can find a more detailed description in the Chapter \hyperlink{ch3}{3}.
+
+From the information-theoretic viewpoint, the COVID-19 pandemic is distinctive by an unprecedented amount of publically available data sets, mostly in the form of time series. 
+
+The goal of this bachelor thesis is to study the properties of the selected time series and use the obtained information to fit the Facebook Prophet and SARIMA models to explain the evolution of the selected time series. After that, it is necessary to detect global trend changepoints and connect them with government decisions or other reasons. Moreover, this thesis aims to study the efficiency of using data slices starting from these changepoints in the modeling of epidemic processes. The final objective is to perform ex-post analyses of the results and evaluate predictions.
+
+\section{Structure of the thesis}
+
+This thesis consists of 3 chapters. Chapter \hyperlink{ch1}{1} aims to a more detailed disclosure of the theory related to time series, their properties and analysis. In Chapter \hyperlink{ch2}{2} you can find all necessary theory behind Facebook Prophet and SARIMA models. Chapter \hyperlink{ch3}{3} introduces practical application of selected models on COVID-19 related time series, results evaluation and discussion. 

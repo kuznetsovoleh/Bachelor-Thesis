@@ -1,0 +1,46 @@
+\chapter{Conclusion}
+At the beginning of 2020, the world was faced with a new disease called COVID-19. From the information-theoretic viewpoint, the pandemic is unique due to an abnormal number of available data sets. Many of them are in the form of time series.
+
+The goal of this bachelor thesis was to perform statistical analyses of the selected time series related to the pandemic in the Czech Republic. For this, we have selected the time series with information about:
+\begin{itemize}
+    \item The cumulative number of people infected.
+    \item The cumulative number of people cured.
+    \item The cumulative number of people dead.
+    \item The number of active cases.
+\end{itemize}
+
+\section{Theoretical research}
+
+Before performing our modeling, we studied different literature aimed at theory related to the study of the time series. It allowed us to learn possible methods of time series analysis, decomposition, modeling, and further development prediction. 
+
+According to the fact that the pandemic is a world problem, we have expected to find other publications and researches dedicated to the same problem. Reading and studying these materials assured us that it is possible to analyze the COVID-19 time series using statistical models and methods.
+
+\section{Time series analysis}
+
+After cleaning and preparing the selected data sets, it was necessary to perform basic time series analysis, such as decomposition of the trend, seasonal and cyclic components, and estimation of seasonal period duration. We also estimated the order of the autoregressive and moving average time series components for further SARIMA modeling. To do this, we used the information obtained by time series differencing and the analysis of the (partial) autocorrelation function. We have discovered that the selected time series change their behavior over time (nonstationarity). Moreover, all of them have global trend growth rate changes, nearly all of them have weekly seasonality. This find follows the usage of models that can handle these time series features.
+
+\section{Model selection}
+
+For this thesis, we decided to use the Facebook Prophet and Seasonal Autoregressive Moving Average (SARIMA) models. Both of them can handle seasonal nonstationary time series that change their evolution over time.
+
+\section{Facebook Prophet modeling}
+
+First, we decided to model the selected time series using the Facebook Prophet. We fitted the models to all the historical data. It allowed us to detect the trend changepoints (during the whole pandemic) for each time series individually. Interestingly, the cumulative sum time series can be forecasted with a high accuracy rate even without any special data preparation. However, the daily number of active cases required the data transformation (Box-Cox or logarithm) to reduce structural changes. Then we used the changepoints to fit new models to the data starting from these changepoints. After doing it, we improved the forecast accuracy for all selected time series. 
+
+The Prophet model uses the piecewise trend concept to handle the global trend growth changes. We used this property to detect the correlations between the detected changepoints and various government restrictions that occurred during the pandemic. The most striking observation to emerge from the correlation analysis was the correlation between the reduction of the daily mean number of new cases and the government restrictions aimed at wearing face masks (respirators), social distancing, and (partial) lockdown.
+
+\section{SARIMA modeling}
+
+The next step was SARIMA modeling. To select the proper order of autoregressive and moving average components, we used the information obtained during the time series analysis. Similarly to the Prophet modeling, the first bunch of models was fitted to all available historical data. In this case, the prediction accuracy was comparable to that obtained using the Prophet model, however, the number of active cases prediction was poor (MAPE = 41\%), and the confidence intervals were broad (except the number of people dead forecast). 
+
+As the next step of the analysis, we explored the potential synergy between the SARIMA model and trend changepoints obtained using the Prophet model. 
+
+The outcome was not that unambiguous like in the case of the Prophet model: some forecasts became less accurate, however, the confidence intervals became thinner. It follows that fitting the model to the slice of the historical data since the specified trend changepoint may improve the forecast only if the earlier data do not contain essential information about the processes that influence time series development.
+
+\section{Summary}
+
+In this thesis, we discovered that it is possible to perform the COVID-19 analysis using statistical analysis and modeling. We found out that the Facebook Prophet and SARIMA models allow receiving significant results and can be used in combination or in isolation. However, because of the unstable evolution of the pandemic processes, only the first few days of the forecast can be used in practice.
+
+\section{Future work}
+
+This study provides the backbone for several possible extensions. First, using the judgmental forecast methods (described, for example, in Hyndman et al. \cite{Hyndman2018}) in association with an epidemiology expert may improve prediction accuracy and result interpretation. Second, it is possible to extend a list of the selected time series by including vaccination, reproductive number, distribution of new cases severity, and so on. It will expand the search range for possible anomalies and interesting phenomena within the time series. Moreover, it is reasonable to test various data preparation and transformation techniques that are not discussed in this thesis.  
